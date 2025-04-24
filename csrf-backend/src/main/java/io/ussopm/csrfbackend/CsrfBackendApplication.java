@@ -19,21 +19,21 @@ public class CsrfBackendApplication {
     }
 
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .formLogin(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.configurationSource(request -> {
-                    var config = new CorsConfiguration();
-                    config.setAllowCredentials(true);
-                    config.setAllowedMethods(List.of("*"));
-                    config.setAllowedHeaders(List.of("*"));
-                    config.setAllowedOriginPatterns(List.of("*"));
-
-                    return config;
-                }))
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .build();
-    }
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        return http
+//                .formLogin(Customizer.withDefaults())
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .cors(cors -> cors.configurationSource(request -> {
+//                    var config = new CorsConfiguration();
+//                    config.setAllowCredentials(true);
+//                    config.setAllowedMethods(List.of("*"));
+//                    config.setAllowedHeaders(List.of("*"));
+//                    config.setAllowedOriginPatterns(List.of("*"));
+//
+//                    return config;
+//                }))
+//                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+//                .build();
+//    }
 }

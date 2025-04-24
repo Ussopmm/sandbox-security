@@ -17,6 +17,7 @@
     <modules>
         <module>sql-injection</module>
         <module>authentication-vulnerability</module>
+        <module>broken-authentication</module>
     </modules>
     <url/>
     <licenses>
