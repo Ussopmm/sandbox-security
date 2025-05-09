@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>sql-injection</module>
-        <module>authentication-vulnerability</module>
+        <module>csrf-backend</module>
         <module>broken-authentication</module>
     </modules>
     <url/>

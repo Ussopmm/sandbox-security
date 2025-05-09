@@ -1,1 +1,3 @@
-spring.application.name=csrf-backend
+spring:
+  mvc:
+    static-path-pattern: "/**"

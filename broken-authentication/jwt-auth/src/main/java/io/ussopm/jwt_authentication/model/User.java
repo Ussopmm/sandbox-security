@@ -24,33 +24,18 @@ public class User implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String username;
-
     private String password;
-
     @Column(name = "c_fullName")
     private String fullName;
-
     private Date createdTime;
-
     private String role;
-
     private String email;
-
     @Column(unique = true, length = 2000)
     private String token;
-
     private int failedAttempts;
-
     private Date lockTime;
-
     private Date passwordUpdateTime;
-
-//    @JsonIgnore
-//    @OneToMany
-//    List<Product> products = new ArrayList<>();
-
     @Override
     public String getAuthority() {
         return getRole();

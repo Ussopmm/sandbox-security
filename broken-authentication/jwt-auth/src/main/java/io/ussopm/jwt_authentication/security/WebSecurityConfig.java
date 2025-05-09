@@ -29,6 +29,7 @@ public class WebSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
+    //TODO
     @Bean
     public SecurityFilterChain config(HttpSecurity http) throws Exception {
 
@@ -40,7 +41,8 @@ public class WebSecurityConfig {
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/registration", "/login", "/resetPassword", "/product/all").permitAll()
+                        .requestMatchers("/registration", "/login", "/resetPassword", "/product/**").permitAll()
+//                        .requestMatchers("/registration", "/login", "/resetPassword").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(exception -> exception.accessDeniedHandler((request, response, accessDeniedException) -> {
                             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
