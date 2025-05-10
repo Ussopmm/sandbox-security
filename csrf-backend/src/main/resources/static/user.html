@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Password</title>
+</head>
+<body>
+<h2>Change Password</h2>
+<form action="/user/change-password" method="GET">
+    <label for="new-password">New Password:</label>
+    <input type="password" id="new-password" name="newPassword" required>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
+<form method="POST" action="/updateProfile">
+    <input type="hidden" name="_csrf" value="generated_csrf_token_here">
+    <!-- Other form fields -->
+    <button type="submit">Submit</button>
+</form>

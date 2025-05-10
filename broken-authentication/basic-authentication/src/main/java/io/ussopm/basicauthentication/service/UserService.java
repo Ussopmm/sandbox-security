@@ -27,6 +27,7 @@ public class UserService {
     // insecure credential storage
     // does not have lockout mechanisms
     // no authorization, unprotected endpoints
+    // show them how is password saved in database
     public String login(UserJson userJson) {
         User user = this.userRepository.findByUsername(userJson.getUsername());
         if (user.getPassword().equals(userJson.getPassword())) {
