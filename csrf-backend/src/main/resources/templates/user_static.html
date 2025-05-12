@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Page</title>
+</head>
+<body>
+<h2>Change Password using FORM</h2>
+<form data-th-action="@{/user/change-password}" method="POST">
+  <input type="hidden" data-th-name="${_csrf.parameterName}" data-th-value="${_csrf.getToken()}">
+  <label>New password: <br>
+    <input type="password" name="newPassword">
+  </label>
+  <button type="submit">Change password</button>
+</form>
+</body>
+</html>

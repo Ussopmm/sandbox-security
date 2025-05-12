@@ -18,6 +18,7 @@
         <module>sql-injection</module>
         <module>csrf-backend</module>
         <module>broken-authentication</module>
+        <module>broken-authentication/brute-force</module>
     </modules>
     <url/>
     <licenses>

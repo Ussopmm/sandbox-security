@@ -16,7 +16,11 @@ public class AuthenticationRestController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserJson userJson) {
-        return this.userService.login(userJson);
+        try {
+            return this.userService.login(userJson);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }

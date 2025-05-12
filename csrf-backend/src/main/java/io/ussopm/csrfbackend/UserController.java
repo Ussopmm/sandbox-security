@@ -26,6 +26,11 @@ public class UserController {
 //        return "redirect:/password-changed.html";
 //    }
 
+    @GetMapping("/static")
+    public String getUser() {
+        return "user_static";
+    }
+
     @PostMapping("change-password")
     public String changePasswordByPost(@AuthenticationPrincipal UserDetails userDetails, String newPassword) {
         LOG.info("POST user password {} was changed to {}", userDetails.getUsername(), newPassword);

@@ -7,8 +7,10 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.*;
 import org.springframework.web.cors.CorsConfiguration;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -21,18 +23,13 @@ public class CsrfBackendApplication {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        HttpSessionCsrfTokenRepository csrfTokenRepository = new HttpSessionCsrfTokenRepository();
         return http
                 .formLogin(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors -> cors.configurationSource(request -> {
-                    var config = new CorsConfiguration();
-                    config.setAllowCredentials(true);
-                    config.setAllowedMethods(List.of("*"));
-                    config.setAllowedHeaders(List.of("*"));
-                    config.setAllowedOriginPatterns(List.of("*"));
-
-                    return config;
-                }))
+                .csrf(csrf -> csrf.csrfTokenRequestHandler(new XorCsrfTokenRequestAttributeHandler())
+                        .csrfTokenRepository(csrfTokenRepository)
+                        .sessionAuthenticationStrategy(new CsrfAuthenticationStrategy(csrfTokenRepository)))
+//                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
                 .build();
     }

@@ -65,7 +65,6 @@ public class UserDAO {
         return null;
     }
 
-
     //TODO -> UNION SELECT BASED SQL INJECTION
     public List<User> getUserById(String userId) {
         List<User> users = new ArrayList<>();

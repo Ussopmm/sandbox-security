@@ -20,12 +20,6 @@ public class UserJson {
     private String created;
     private String token;
 
-    public UserJson(long id, String username, String role) {
-        this.id = id;
-        this.username = username;
-        this.role = role;
-    }
-
     public UserJson(String token, String username, String role) {
         this.token = token;
         this.username = username;

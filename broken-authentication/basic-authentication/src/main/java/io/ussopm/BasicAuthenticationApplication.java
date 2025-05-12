@@ -1,7 +1,11 @@
 package io.ussopm;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class BasicAuthenticationApplication {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(BasicAuthenticationApplication.class, args);
     }
 }

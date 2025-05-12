@@ -7,6 +7,7 @@ import io.ussopm.jwt_authentication.utils.CustomException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,10 +24,10 @@ public class ProductRestController {
     public ResponseEntity<?> getAllUsers() {
         // TODO -> INCORRECT PRODUCT RETURN [IT RETURN ENTITY INSTEAD OF DTO AND IT CONTAINS USER WITH SENSITIVE DATA]
         try {
-            return ResponseEntity.ok().body(this.productService.getAll());
+//            return ResponseEntity.ok().body(this.productService.getAll());
 
             // TODO -> CORRECT IMPLEMENTATION [uses mapping to map entity into dto and it contains user dto]
-//            return ResponseEntity.ok().body(this.productService.getAllSecurely());
+            return ResponseEntity.ok().body(this.productService.getAllSecurely());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(null);
         }

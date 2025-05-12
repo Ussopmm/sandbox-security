@@ -24,7 +24,6 @@ import static io.ussopm.jwt_authentication.security.Constants.TOKEN_PREFIX;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final UserDetailsService userDetailsService;
     private final TokenProvider tokenProvider;
 
@@ -60,11 +59,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
-
         filterChain.doFilter(request, response);
     }
-
-
-
 }
 

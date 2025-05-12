@@ -18,6 +18,9 @@ public class UserService {
     private final UserRepository userRepository;
     public UUID KEY = null;
 
+    // plaintext (password) and no password encryption
+    // does not have any password policies
+    // does not check for duplicates
     public User register(UserJson userJson) {
         return this.userRepository.save(new User(userJson.getUsername(), userJson.getPassword(), new Date(), "USER"));
     }
